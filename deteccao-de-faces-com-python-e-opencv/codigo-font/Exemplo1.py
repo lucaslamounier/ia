@@ -8,13 +8,13 @@ imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 # faces_detectadas = classificador.detectMultiScale(imagemCinza)
 
 # Adicionado parametro de escala para melhorar a precisão
-faces_detectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.1)
+faces_detectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.1, minNeighbors=9, minSize=(30,30))
 
-print(len(faces_detectadas))
-print(faces_detectadas)
+#print(len(faces_detectadas))
+#print(faces_detectadas)
 
 for (x, y, l, a) in faces_detectadas:
-    print(x, y, l, a)
+    #print(x, y, l, a)
     # Parametros Imagem, Posição original, Quanto quer desenhar da borda, Valores RGB da borda, Espessura da borda
     cv2.rectangle(imagem, (x,y), (x + l, y + a), (0, 253, 255), 2)
 
